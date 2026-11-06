@@ -1,0 +1,2 @@
+<form class="inline" method="GET">@foreach(request()->except('period') as $k => $v)@if(!is_array($v))<input type="hidden" name="{{ $k }}" value="{{ $v }}">@endif @endforeach
+<select name="period" onchange="this.form.submit()">@foreach(\App\Services\Intelligence\ReportCatalogue::PERIODS as $k => $l)<option value="{{ $k }}" @selected($period===$k)>{{ $l }}</option>@endforeach</select><noscript><button>Show</button></noscript></form>
